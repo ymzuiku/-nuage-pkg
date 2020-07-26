@@ -30,7 +30,11 @@ async function start() {
   if (!fs.existsSync(pwd(argv[0]))) {
     fs.mkdirpSync(pwd(argv[0]));
   }
-  fs.copySync(resolve(__dirname, "../lib"), pwd(argv[0], pkg.name));
+  if (argv[0] === "./") {
+    fs.copySync(resolve(__dirname, "../lib"), pwd(argv[0]));
+  } else {
+    fs.copySync(resolve(__dirname, "../lib"), pwd(argv[0], pkg.name));
+  }
 }
 
 start();
