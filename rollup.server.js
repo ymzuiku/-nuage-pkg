@@ -55,7 +55,7 @@ const watchOptions = {
     "http",
     "url",
   ],
-  input: "./lib/index.ts",
+  input: "./server/index.ts",
   output: {
     file: `./dist/index.js`,
     format: "cjs",
@@ -93,6 +93,8 @@ const watchOptions = {
 };
 const watcher = rollup.watch(watchOptions);
 
+const copyList = ["yarn.lock", "env.json", "env.local.json"];
+
 // event.code can be one of:
 //   START        — the watcher is (re)starting
 //   BUNDLE_START — building an individual bundle
@@ -109,7 +111,11 @@ watcher.on("event", (event) => {
   } else if (event.code === "END") {
     delete pkg.devDependencies;
     fs.writeJSONSync("./dist/package.json", pkg, { spaces: 2 });
-    fs.copyFileSync("yarn.lock", "./dist/yarn.lock");
+    copyList.forEach((f) => {
+      if (fs.existsSync(f)) {
+        fs.copyFileSync(f, "./dist/" + f);
+      }
+    });
     if (!haveArgv("--watch", "-w")) {
       watcher.close();
     }
