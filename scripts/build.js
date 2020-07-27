@@ -14,7 +14,7 @@ const files = [
   "vite.config.js",
 ];
 
-const dirs = ["scripts", "src", "server"];
+const dirs = ["scripts", "src", "server", "static"];
 
 fs.emptyDirSync(resolve(__dirname, "../lib"));
 fs.mkdirp(resolve(__dirname, "../lib"));
