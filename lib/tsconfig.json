@@ -24,7 +24,10 @@
     "inlineSourceMap": false,
     "declaration": false,
     "outDir": "./umd",
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "types": [
+      "cypress"
+    ]
   },
   "exclude": [
     ".vscode",
