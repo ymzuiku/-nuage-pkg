@@ -1,0 +1,5 @@
+## cypress
+
+```sh
+yarn test
+```
