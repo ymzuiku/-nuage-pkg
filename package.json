@@ -50,7 +50,7 @@
     "fastify-compress": "^3.2.2",
     "fastify-cors": "^4.1.0",
     "fastify-helmet": "^4.0.2",
-    "fastify-static": "^3.2.0",
+    "fastify-static": "^4.2.4",
     "fs-extra": "^9.0.1",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
